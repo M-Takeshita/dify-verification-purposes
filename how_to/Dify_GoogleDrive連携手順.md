@@ -9,7 +9,7 @@ Self-hosted Dify から Google Drive をデータソースとして接続し、G
 - Dify: `1.16.1`
 - Dify稼働環境: AWS EC2
 - Docker ComposeによるSelf-host
-- Dify公開URL: `https://dify-demo.los-ij.co.jp`
+- Dify公開URL: `https://example.com`
 - Google Workspace: **未契約**
 - Google Cloud: OAuth / Google Drive API設定のために利用
 - Googleアカウント: 通常の個人Googleアカウントでも可
@@ -51,7 +51,7 @@ Internet
    │
    │ HTTPS
    ↓
-https://dify-demo.los-ij.co.jp
+https://example.com
    │
    ↓
 EC2 / nginx
@@ -78,7 +78,7 @@ EC2 / nginx
 今回の例：
 
 ```text
-https://dify-demo.los-ij.co.jp
+https://example.com
 ```
 
 ---
@@ -229,7 +229,7 @@ Dify公式Google Drive PluginでもSelf-hosted環境用のOAuth Callback設定�
 今回の場合：
 
 ```text
-https://dify-demo.los-ij.co.jp/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
+https://example.com/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
 ```
 
 Google CloudのOAuth Client設定で、
@@ -276,11 +276,11 @@ cd ~/dify/docker
 外部公開URLは以下とする。
 
 ```env
-CONSOLE_API_URL=https://dify-demo.los-ij.co.jp
-CONSOLE_WEB_URL=https://dify-demo.los-ij.co.jp
-SERVICE_API_URL=https://dify-demo.los-ij.co.jp
-APP_API_URL=https://dify-demo.los-ij.co.jp
-APP_WEB_URL=https://dify-demo.los-ij.co.jp
+CONSOLE_API_URL=https://example.com
+CONSOLE_WEB_URL=https://example.com
+SERVICE_API_URL=https://example.com
+APP_API_URL=https://example.com
+APP_WEB_URL=https://example.com
 ```
 
 ---
@@ -326,7 +326,7 @@ Browser
    │
    │ HTTPS
    ↓
-https://dify-demo.los-ij.co.jp
+https://example.com
    │
    ↓
 nginx
@@ -378,17 +378,17 @@ ENABLE_COLLABORATION_MODE=false
 今回の環境では最低限以下を設定する。
 
 ```env
-CONSOLE_API_URL=https://dify-demo.los-ij.co.jp
+CONSOLE_API_URL=https://example.com
 
 SERVER_CONSOLE_API_URL=http://api:5001
 
-CONSOLE_WEB_URL=https://dify-demo.los-ij.co.jp
+CONSOLE_WEB_URL=https://example.com
 
-SERVICE_API_URL=https://dify-demo.los-ij.co.jp
+SERVICE_API_URL=https://example.com
 
-APP_API_URL=https://dify-demo.los-ij.co.jp
+APP_API_URL=https://example.com
 
-APP_WEB_URL=https://dify-demo.los-ij.co.jp
+APP_WEB_URL=https://example.com
 
 ENABLE_COLLABORATION_MODE=false
 ```
@@ -568,7 +568,7 @@ Google OAuthでは完全なURLが必要。
 `.env` の以下を設定する。
 
 ```env
-CONSOLE_API_URL=https://dify-demo.los-ij.co.jp
+CONSOLE_API_URL=https://example.com
 ```
 
 その後、
@@ -583,7 +583,7 @@ docker compose up -d
 正常時：
 
 ```text
-redirect_uri=https://dify-demo.los-ij.co.jp/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
+redirect_uri=https://example.com/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
 ```
 
 Google OAuthではredirect URIの完全一致が要求される。 citeturn943278search7
@@ -680,7 +680,7 @@ https://<Difyドメイン>/console/api/oauth/plugin/langgenius/google_drive/goog
 今回：
 
 ```text
-https://dify-demo.los-ij.co.jp/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
+https://example.com/console/api/oauth/plugin/langgenius/google_drive/google_drive/datasource/callback
 ```
 
 Google Cloudへ登録したURIと完全一致すること。
@@ -838,7 +838,7 @@ CONSOLE_API_URL=
 正：
 
 ```env
-CONSOLE_API_URL=https://dify-demo.los-ij.co.jp
+CONSOLE_API_URL=https://example.com
 ```
 
 空の場合、Googleへ相対Callback URLが渡され、
