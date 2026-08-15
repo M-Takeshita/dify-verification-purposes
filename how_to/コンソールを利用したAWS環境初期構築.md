@@ -207,3 +207,22 @@ sed -i \
 -e 's/^CONSOLE_WEB_URL\(=.*\)\?$/MAIL_TYPE=https://example.com' \
 .env
 ```
+
+# [参考]: v1.16.1で同期中のまま処理が止まってしまう場合
+公式GitHubのIssue #39745で、今回と同じ「Syncing Data…が永久に終わらない」症状について、原因が Collaboration / WebSocket 周りとされ、ENABLE_COLLABORATION_MODE=false にすると解消したという回避策が報告されています。
+
+```bash
+cd ~/dify/docker
+
+# ENABLE_COLLABORATION_MODEが.envに存在するか確認する
+grep ENABLE_COLLABORATION_MODE .env
+
+# 存在した場合はfalseに変更する
+sed -i 's/^ENABLE_COLLABORATION_MODE=.*/ENABLE_COLLABORATION_MODE=false/' .env
+# 存在しない場合は新規で追加する(多分使うことはないコマンド)
+echo 'ENABLE_COLLABORATION_MODE=false' >> .env
+
+# 再起動
+docker compose down
+docker compose up -d
+```
