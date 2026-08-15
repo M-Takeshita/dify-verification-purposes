@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">店舗マニュアル回答ボット</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1 id="heroTitle">店舗マニュアル回答ボット</h1>
+          <p id="heroLead" class="lead">音声入力で店舗マニュアルを検索し、回答します。</p>
+        </div>
+      </header>
+
+      <main class="chat-panel">
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="chatForm" class="composer">
+          <div class="voice-area">
+            <div id="languageSelector" class="language-selector" role="group" aria-label="音声認識言語">
+              <button type="button" class="language-chip active" data-language="ja-JP">日本語</button>
+              <button type="button" class="language-chip" data-language="zh-CN">中文</button>
+              <button type="button" class="language-chip" data-language="en-US">English</button>
+              <button type="button" class="language-chip" data-language="ko-KR">한국어</button>
+              <button type="button" class="language-chip" data-language="vi-VN">Tiếng Việt</button>
+            </div>
+            <div id="interimTranscript" class="interim-text">ボタンを押している間だけ録音します</div>
+            <button id="voiceHoldButton" type="button" class="hold-to-talk-button" aria-label="押している間だけ録音">
+              <span id="voiceHoldLabel">押して話す</span>
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="message-role"></div>
+        <div class="message-body"></div>
+      </article>
+    </template>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+  </html>
