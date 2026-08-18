@@ -1,5 +1,9 @@
 #
 .api-key
+config.js
+.htaccess
+.htpasswd
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
