@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ベテラン技術ナレッジ継承システム | ベテランへ質問する</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body data-page="question">
+    <div class="app-shell">
+      <aside class="sidebar" data-sidebar></aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Question Detail</p>
+            <h2>ベテランへ質問する</h2>
+          </div>
+        </header>
+
+        <section class="panel single-panel">
+          <div class="section-heading">
+            <h3>質問登録フォーム</h3>
+            <span class="badge badge-neutral">Mock Form</span>
+          </div>
+          <form class="form-grid form-grid-single">
+            <label class="field-width-title">
+              <span>質問タイトル <em class="required-mark">※</em></span>
+              <input type="text" placeholder="質問タイトルを入力してください" />
+            </label>
+            <label class="field-width-category">
+              <span>カテゴリ <em class="required-mark">※</em></span>
+              <select>
+                <option selected disabled>カテゴリを選択してください</option>
+                <option selected>設備異常</option>
+                <option>保全</option>
+                <option>品質</option>
+                <option>安全</option>
+              </select>
+            </label>
+            <label class="full">
+              <span>質問詳細 <em class="required-mark">※</em></span>
+              <textarea rows="8" placeholder="質問内容の詳細を入力してください"></textarea>
+            </label>
+            <label class="full">
+              <span>参考情報</span>
+              <textarea rows="4" placeholder="参考情報があれば入力してください"></textarea>
+            </label>
+            <label class="full">
+              <span>画像・ファイルを添付</span>
+              <div class="file-upload-mock">
+                <input type="file" multiple />
+                <p>最大5個まで添付できます。</p>
+              </div>
+            </label>
+          </form>
+          <p class="demo-note">※DEMO版のため実際のデータとは異なります。また実際にデータは登録されません。</p>
+          <div class="footer-actions">
+            <a class="button" href="./questions.html">質問を登録する</a>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop" data-drive-modal hidden>
+      <div class="modal">
+        <h3>Google Driveへ遷移</h3>
+        <p>
+          チャットボットが参照しているGoogleDirveへ遷移しますが良いですか？<br />
+          ※資料のアップロード後、反映に5分程かかります。
+        </p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-drive-cancel>キャンセル</button>
+          <button class="button" type="button" data-drive-confirm>OK</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

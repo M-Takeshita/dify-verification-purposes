@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ベテラン技術ナレッジ継承システム | チャットボット</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./config.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body data-page="index">
+    <div class="app-shell">
+      <aside class="sidebar" data-sidebar></aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Chatbot</p>
+            <h2>チャットボットへ相談</h2>
+          </div>
+        </header>
+
+        <section class="panel selector-panel">
+          <div class="section-heading">
+            <h3>ジャンル別チャットボット</h3>
+            <p>相談内容に応じて利用するチャットボットを切り替えます。</p>
+          </div>
+          <div class="bot-grid">
+            <a class="bot-button active" href="./index.html">
+              <strong>技術チャットボット</strong>
+              <span>設備異常、段取り替え、ライン停止時の一次対応</span>
+            </a>
+            <a class="bot-button" href="./index.html">
+              <strong>社内申請手順チャットボット</strong>
+              <span>稟議、購買、保全依頼、各種申請フローの確認</span>
+            </a>
+            <a class="bot-button" href="./index.html">
+              <strong>品質トラブルチャットボット</strong>
+              <span>不良解析、検査基準、是正処置の確認</span>
+            </a>
+            <a class="bot-button" href="./index.html">
+              <strong>安全・保全チャットボット</strong>
+              <span>点検手順、ロックアウト、安全基準の照会</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="panel single-panel">
+          <div class="section-heading section-heading-action">
+            <h3>技術チャットボット</h3>
+            <a class="button" href="./question.html">ベテランへ質問する</a>
+          </div>
+          <iframe
+            data-dify-iframe
+            src="about:blank"
+            style="width: 100%; height: 100%; min-height: 700px; border: 0; border-radius: 12px;"
+            frameborder="0"
+            allow="microphone;clipboard-write">
+          </iframe>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop" data-drive-modal hidden>
+      <div class="modal">
+        <h3>Google Driveへ遷移</h3>
+        <p>
+          チャットボットが参照しているGoogleDirveへ遷移しますが良いですか？<br />
+          ※資料のアップロード後、反映に5分程かかります。
+        </p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-drive-cancel>キャンセル</button>
+          <button class="button" type="button" data-drive-confirm>OK</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

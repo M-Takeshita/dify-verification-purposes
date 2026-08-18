@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ベテラン技術ナレッジ継承システム | 質問回答</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body data-page="answer">
+    <div class="app-shell">
+      <aside class="sidebar" data-sidebar></aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Expert Response</p>
+            <h2>ベテランによる質問回答</h2>
+          </div>
+          <div class="header-actions">
+            <span class="status progress large">回答中</span>
+            <a class="button secondary" href="./questions.html">一覧へ戻る</a>
+          </div>
+        </header>
+
+        <section class="panel single-panel">
+          <div class="section-heading">
+            <h3>質問内容</h3>
+          </div>
+          <div class="detail-grid detail-grid-question">
+            <div class="detail-row">
+              <dt>質問タイトル</dt>
+              <dd>ライン3温調ユニットのE-17アラーム原因を知りたい</dd>
+            </div>
+            <div class="detail-row">
+              <dt>カテゴリ</dt>
+              <dd>設備異常</dd>
+            </div>
+            <div class="detail-row">
+              <dt>質問詳細</dt>
+              <dd>夜勤帯で温度が78℃を超えた際にE-17アラームが断続的に発生。フィルタ清掃後も改善せず、立上げ30分後に再発。過去事例と暫定対処を確認したい。</dd>
+            </div>
+            <div class="detail-row">
+              <dt>参考情報</dt>
+              <dd>温調ログ、警報履歴、当日作業日報を確認済み。</dd>
+            </div>
+            <div class="detail-row">
+              <dt>画像・ファイルを添付</dt>
+              <dd class="file-link-list">
+                <a href="#">alarm_log_0817.xlsx</a>
+                <a href="#">handover_note.pdf</a>
+              </dd>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <h3>回答入力</h3>
+          </div>
+          <form class="form-grid form-grid-single">
+            <label class="full">
+              <span>回答内容 <em class="required-mark">※</em></span>
+              <textarea rows="9" placeholder="回答内容を入力してください"></textarea>
+            </label>
+            <label class="full">
+              <span>その他備考1</span>
+              <textarea rows="3" placeholder="補足事項があれば入力してください"></textarea>
+            </label>
+            <label class="full">
+              <span>その他備考2</span>
+              <textarea rows="3" placeholder="引き継ぎ事項や留意点があれば入力してください"></textarea>
+            </label>
+          </form>
+          <p class="demo-note">※DEMO版のため実際のデータとは異なります。また実際にデータは登録されません。</p>
+          <div class="footer-actions">
+            <button class="button" type="button" data-followup-open>回答済みにして登録</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop" data-drive-modal hidden>
+      <div class="modal">
+        <h3>Google Driveへ遷移</h3>
+        <p>
+          チャットボットが参照しているGoogleDirveへ遷移しますが良いですか？<br />
+          ※資料のアップロード後、反映に5分程かかります。
+        </p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-drive-cancel>キャンセル</button>
+          <button class="button" type="button" data-drive-confirm>OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" data-followup-modal hidden>
+      <div class="modal modal-large">
+        <h3>AIによる深掘り質問</h3>
+        <p>回答内容をもとに、AIが追加で確認したい項目を表示しています。</p>
+        <form class="form-grid form-grid-single modal-form">
+          <label class="full">
+            <span>深掘り質問1</span>
+            <textarea rows="2" readonly>アラームE-17が発生した時点の設備温度、差圧、ポンプ電流値の傾向はどうでしたか？</textarea>
+          </label>
+          <label class="full">
+            <span>回答1</span>
+            <textarea rows="3" placeholder="回答を入力してください"></textarea>
+          </label>
+          <label class="full">
+            <span>深掘り質問2</span>
+            <textarea rows="2" readonly>フィルタ清掃後も改善しなかったことから、次に確認すべき部位はどこですか？</textarea>
+          </label>
+          <label class="full">
+            <span>回答2</span>
+            <textarea rows="3" placeholder="回答を入力してください"></textarea>
+          </label>
+          <label class="full">
+            <span>深掘り質問3</span>
+            <textarea rows="2" readonly>今回の事象を再発防止の観点でナレッジ化する場合、どの条件を明記すべきですか？</textarea>
+          </label>
+          <label class="full">
+            <span>回答3</span>
+            <textarea rows="3" placeholder="回答を入力してください"></textarea>
+          </label>
+        </form>
+        <p class="demo-note">※DEMO版のため実際のデータとは異なります。また実際にデータは登録されません。</p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-followup-cancel>戻る</button>
+          <button class="button" type="button" data-followup-confirm>登録する</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" data-followup-loading hidden>
+      <div class="modal modal-loading">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <h3>AIが深掘り質問を生成中です</h3>
+        <p>回答内容をもとに確認事項を整理しています。しばらくお待ちください。</p>
+      </div>
+    </div>
+  </body>
+  </html>

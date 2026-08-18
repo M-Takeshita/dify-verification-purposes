@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ベテラン技術ナレッジ継承システム | 質問一覧</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body data-page="questions">
+    <div class="app-shell">
+      <aside class="sidebar" data-sidebar></aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Question Queue</p>
+            <h2>質問一覧</h2>
+          </div>
+        </header>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <h3>質問一覧</h3>
+            </div>
+            <p class="count-note" data-count-note>1-10件 / 3291件</p>
+          </div>
+
+          <div class="search-panel">
+            <div class="search-layout">
+              <div class="search-grid">
+                <label class="filter-field search-id">
+                  <span>ID</span>
+                  <input type="text" placeholder="例: Q-2417" data-filter-id />
+                </label>
+                <label class="filter-field search-date">
+                  <span>質問日</span>
+                  <input type="date" data-filter-date />
+                </label>
+                <label class="filter-field search-status">
+                  <span>ステータス</span>
+                  <select data-filter-status>
+                    <option value="all">すべて</option>
+                    <option value="未回答">未回答</option>
+                    <option value="回答済み">回答済み</option>
+                  </select>
+                </label>
+                <label class="filter-field search-category">
+                  <span>カテゴリ</span>
+                  <select data-filter-category>
+                    <option value="all">すべて</option>
+                    <option value="設備異常">設備異常</option>
+                    <option value="保全">保全</option>
+                    <option value="品質">品質</option>
+                    <option value="製造">製造</option>
+                    <option value="安全">安全</option>
+                    <option value="段取り替え">段取り替え</option>
+                    <option value="社内申請">社内申請</option>
+                  </select>
+                </label>
+                <label class="filter-field search-mine">
+                  <span>自分の質問</span>
+                  <span class="checkbox-field">
+                    <input type="checkbox" data-filter-mine />
+                    <span>自分の質問を検索する</span>
+                  </span>
+                </label>
+              </div>
+              <div class="search-actions">
+                <button class="button" type="button" data-apply-filters>絞り込む</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>質問日</th>
+                  <th>ステータス</th>
+                  <th>カテゴリ</th>
+                  <th>質問タイトル</th>
+                  <th>質問者</th>
+                  <th>回答者</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-id="Q-2424" data-date="2026-08-18" data-status="未回答" data-category="品質">
+                  <td>Q-2424</td>
+                  <td>2026-08-18 11:42</td>
+                  <td><span class="status pending">未回答</span></td>
+                  <td>品質</td>
+                  <td>塗工後の端面に発生する微細な毛羽立ちの原因を知りたい</td>
+                  <td>石井 美咲</td>
+                  <td><span class="assignee-unanswered">未回答</span></td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2424"
+                      data-question-status="未回答"
+                      data-question-title="塗工後の端面に発生する微細な毛羽立ちの原因を知りたい"
+                      data-question-category="品質"
+                      data-question-detail="午後ロットでのみ端面に微細な毛羽立ちが発生。刃物交換後も改善せず、湿度条件との関連を含めて確認したい。"
+                      data-question-reference="当日検査記録、刃物交換履歴、湿度ログを確認済み。"
+                      data-question-files="inspection_result_0818.pdf, humidity_log.csv"
+                      data-question-answer=""
+                    >詳細</a>
+                    <a class="button button-danger button-small" href="./answer.html" data-answer-open>回答する</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2421" data-date="2026-08-18" data-status="回答済み" data-category="保全">
+                  <td>Q-2421</td>
+                  <td>2026-08-18 10:15</td>
+                  <td><span class="status done">回答済み</span></td>
+                  <td>保全</td>
+                  <td>乾燥炉ファンの異音が再発した時の点検順序を確認したい</td>
+                  <td>吉田 恒一</td>
+                  <td>松本 恒一</td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2421"
+                      data-question-status="回答済み"
+                      data-question-title="乾燥炉ファンの異音が再発した時の点検順序を確認したい"
+                      data-question-category="保全"
+                      data-question-detail="乾燥炉ファンの軸受交換後に異音が再発。停止前に確認すべき項目と停止後の点検順を整理したい。"
+                      data-question-reference="前回点検報告書、振動測定記録、保全手順書を参照。"
+                      data-question-files="fan_maintenance_report.pdf"
+                      data-question-answer="停止前は振動値、温度、異音の発生タイミングを確認し、停止後はカップリング、軸受、ファン羽根の順で点検する。再発時は芯出し再確認を優先する。"
+                    >詳細</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2417" data-date="2026-08-17" data-status="未回答" data-category="設備異常">
+                  <td>Q-2417</td>
+                  <td>2026-08-17 09:12</td>
+                  <td><span class="status pending">未回答</span></td>
+                  <td>設備異常</td>
+                  <td>ライン3温調ユニットのE-17アラーム原因を知りたい</td>
+                  <td>田中 一郎</td>
+                  <td><span class="assignee-unanswered">未回答</span></td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2417"
+                      data-question-status="未回答"
+                      data-question-title="ライン3温調ユニットのE-17アラーム原因を知りたい"
+                      data-question-category="設備異常"
+                      data-question-detail="夜勤帯で温度が78℃を超えた際にE-17アラームが断続的に発生。フィルタ清掃後も改善せず、立上げ30分後に再発。過去事例と暫定対処を確認したい。"
+                      data-question-reference="温調ログ、警報履歴、当日作業日報を確認済み。"
+                      data-question-files="alarm_log_0817.xlsx, handover_note.pdf"
+                      data-question-answer=""
+                    >詳細</a>
+                    <a class="button button-danger button-small" href="./answer.html" data-answer-open>回答する</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2415" data-date="2026-08-17" data-status="回答済み" data-category="社内申請">
+                  <td>Q-2415</td>
+                  <td>2026-08-17 08:48</td>
+                  <td><span class="status done">回答済み</span></td>
+                  <td>社内申請</td>
+                  <td>設備更新稟議で必要な添付資料の一覧を知りたい</td>
+                  <td>井上 真由美</td>
+                  <td>小林 恒一</td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2415"
+                      data-question-status="回答済み"
+                      data-question-title="設備更新稟議で必要な添付資料の一覧を知りたい"
+                      data-question-category="社内申請"
+                      data-question-detail="設備更新稟議を起票する際に必要な見積、投資対効果、旧設備不具合実績などの添付書類を整理したい。"
+                      data-question-reference="稟議テンプレート、直近の設備更新案件を参照。"
+                      data-question-files="ringi_template.xlsx, investment_case.pdf"
+                      data-question-answer="見積書、投資対効果、故障実績、配置図、更新後の生産影響を添付する。50万円超は部門長承認前に経理確認も必要。"
+                    >詳細</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2413" data-date="2026-08-16" data-status="回答済み" data-category="段取り替え">
+                  <td>Q-2413</td>
+                  <td>2026-08-16 17:45</td>
+                  <td><span class="status done">回答済み</span></td>
+                  <td>段取り替え</td>
+                  <td>新ロット切替時の芯ズレ補正値の決め方を知りたい</td>
+                  <td>鈴木 健太</td>
+                  <td>高橋 恒一</td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2413"
+                      data-question-status="回答済み"
+                      data-question-title="新ロット切替時の芯ズレ補正値の決め方を知りたい"
+                      data-question-category="段取り替え"
+                      data-question-detail="新ロット切替時に初回3巻で芯ズレが発生するため、補正値の決め方と確認手順を知りたい。"
+                      data-question-reference="切替記録表、前回ロットの補正値、初回検査結果を参照。"
+                      data-question-files="setup_change_sheet.pdf"
+                      data-question-answer="基準値は前ロット実績を起点にし、初回1巻目で片側寄りが出た場合は0.2mm単位で補正する。3巻連続で許容内に入った時点の値を標準値として記録する。"
+                    >詳細</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2410" data-date="2026-08-16" data-status="未回答" data-category="製造">
+                  <td>Q-2410</td>
+                  <td>2026-08-16 16:22</td>
+                  <td><span class="status pending">未回答</span></td>
+                  <td>製造</td>
+                  <td>立上げ時にのみ発生する蛇行補正遅れの原因を確認したい</td>
+                  <td>斎藤 恒一</td>
+                  <td><span class="assignee-unanswered">未回答</span></td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2410"
+                      data-question-status="未回答"
+                      data-question-title="立上げ時にのみ発生する蛇行補正遅れの原因を確認したい"
+                      data-question-category="製造"
+                      data-question-detail="立上げ時の1本目だけ蛇行補正の反応が遅く、2本目以降は正常。初期条件の確認ポイントを知りたい。"
+                      data-question-reference="操業ログ、補正履歴、張力設定値を確認中。"
+                      data-question-files="startup_log_0816.csv"
+                      data-question-answer=""
+                    >詳細</a>
+                    <a class="button button-danger button-small" href="./answer.html" data-answer-open>回答する</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2408" data-date="2026-08-16" data-status="未回答" data-category="保全">
+                  <td>Q-2408</td>
+                  <td>2026-08-16 14:08</td>
+                  <td><span class="status pending">未回答</span></td>
+                  <td>保全</td>
+                  <td>ベアリング交換周期の根拠資料が見つからない</td>
+                  <td>山本 彩乃</td>
+                  <td><span class="assignee-unanswered">未回答</span></td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2408"
+                      data-question-status="未回答"
+                      data-question-title="ベアリング交換周期の根拠資料が見つからない"
+                      data-question-category="保全"
+                      data-question-detail="年次点検対象の搬送ローラーベアリングについて、交換周期の根拠になった資料と判断基準を確認したい。"
+                      data-question-reference="設備台帳、過去点検計画、故障履歴を確認中。"
+                      data-question-files="maintenance_plan_2026.xlsx"
+                      data-question-answer=""
+                    >詳細</a>
+                    <a class="button button-danger button-small" href="./answer.html" data-answer-open>回答する</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2406" data-date="2026-08-16" data-status="回答済み" data-category="安全">
+                  <td>Q-2406</td>
+                  <td>2026-08-16 11:36</td>
+                  <td><span class="status done">回答済み</span></td>
+                  <td>安全</td>
+                  <td>高所点検時の補助具使用条件を確認したい</td>
+                  <td>森 優花</td>
+                  <td>三浦 恒一</td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2406"
+                      data-question-status="回答済み"
+                      data-question-title="高所点検時の補助具使用条件を確認したい"
+                      data-question-category="安全"
+                      data-question-detail="2m未満の点検でも補助具を使うケースの判断基準と、監督者承認の要否を確認したい。"
+                      data-question-reference="安全衛生基準書、高所作業標準を参照。"
+                      data-question-files="safety_manual.pdf"
+                      data-question-answer="2m未満でも足場不安定、片手作業、可動部近接がある場合は補助具を使う。標準外作業なら監督者承認を必須とする。"
+                    >詳細</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2403" data-date="2026-08-15" data-status="回答済み" data-category="安全">
+                  <td>Q-2403</td>
+                  <td>2026-08-15 19:52</td>
+                  <td><span class="status done">回答済み</span></td>
+                  <td>安全</td>
+                  <td>点検前ロックアウト手順の例外条件を確認したい</td>
+                  <td>中村 陽介</td>
+                  <td>三浦 恒一</td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2403"
+                      data-question-status="回答済み"
+                      data-question-title="点検前ロックアウト手順の例外条件を確認したい"
+                      data-question-category="安全"
+                      data-question-detail="定常停止中の簡易点検で、主電源遮断以外に認められる例外条件と承認フローを確認したい。"
+                      data-question-reference="安全標準書 第4版、夜勤点検手順書を参照。"
+                      data-question-files="safety_standard_v4.pdf, lockout_checklist.docx"
+                      data-question-answer="主電源遮断を省略できるのは低圧補機のみで、二重確認者と班長承認が前提。可動部接触の可能性がある作業は例外なく通常ロックアウトを適用する。"
+                    >詳細</a>
+                  </td>
+                </tr>
+                <tr data-id="Q-2399" data-date="2026-08-15" data-status="未回答" data-category="品質">
+                  <td>Q-2399</td>
+                  <td>2026-08-15 15:18</td>
+                  <td><span class="status pending">未回答</span></td>
+                  <td>品質</td>
+                  <td>検査画像の保存先ルールが工程ごとに違う理由を知りたい</td>
+                  <td>藤井 遥</td>
+                  <td><span class="assignee-unanswered">未回答</span></td>
+                  <td class="action-cell">
+                    <a
+                      class="button button-small"
+                      href="#"
+                      data-detail-open
+                      data-question-id="Q-2399"
+                      data-question-status="未回答"
+                      data-question-title="検査画像の保存先ルールが工程ごとに違う理由を知りたい"
+                      data-question-category="品質"
+                      data-question-detail="外観検査画像の保存先が工程によって異なるため、命名規則と保存先の使い分け基準を確認したい。"
+                      data-question-reference="品質保証フォルダ構成、検査運用ルールを確認中。"
+                      data-question-files="image_storage_rule.docx"
+                      data-question-answer=""
+                    >詳細</a>
+                    <a class="button button-danger button-small" href="./answer.html" data-answer-open>回答する</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="demo-note">※DEMO版のため実際のデータとは異なります。また実際にデータは登録されません。</p>
+          <div class="pagination">
+            <a class="pagination-link disabled" href="#">前へ</a>
+            <a class="pagination-link active" href="#">1</a>
+            <a class="pagination-link" href="#">2</a>
+            <a class="pagination-link" href="#">3</a>
+            <a class="pagination-link" href="#">次へ</a>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop" data-drive-modal hidden>
+      <div class="modal">
+        <h3>Google Driveへ遷移</h3>
+        <p>
+          チャットボットが参照しているGoogleDirveへ遷移しますが良いですか？<br />
+          ※資料のアップロード後、反映に5分程かかります。
+        </p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-drive-cancel>キャンセル</button>
+          <button class="button" type="button" data-drive-confirm>OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" data-answer-modal hidden>
+      <div class="modal">
+        <h3>回答確認</h3>
+        <p>回答しますか？</p>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-answer-cancel>戻る</button>
+          <button class="button button-danger" type="button" data-answer-confirm>回答する</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" data-detail-modal hidden>
+      <div class="modal modal-large">
+        <h3>質問詳細</h3>
+        <div class="detail-grid">
+          <div class="detail-row">
+            <dt>質問ID</dt>
+            <dd data-detail-id></dd>
+          </div>
+          <div class="detail-row">
+            <dt>ステータス</dt>
+            <dd data-detail-status></dd>
+          </div>
+          <div class="detail-row">
+            <dt>質問タイトル</dt>
+            <dd data-detail-title></dd>
+          </div>
+          <div class="detail-row">
+            <dt>カテゴリ</dt>
+            <dd data-detail-category></dd>
+          </div>
+          <div class="detail-row">
+            <dt>質問詳細</dt>
+            <dd data-detail-question></dd>
+          </div>
+          <div class="detail-row">
+            <dt>参考情報</dt>
+            <dd data-detail-reference></dd>
+          </div>
+          <div class="detail-row">
+            <dt>画像・ファイルを添付</dt>
+            <dd data-detail-files></dd>
+          </div>
+          <div class="detail-row" data-detail-answer-row hidden>
+            <dt>回答内容</dt>
+            <dd data-detail-answer></dd>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="button secondary" type="button" data-detail-close>閉じる</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
